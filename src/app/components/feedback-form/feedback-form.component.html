@@ -1,0 +1,55 @@
+<div class="quiz-container" id="questionnaires">
+    <form class="text-center border border-light p-5" [formGroup]="feedbackForm" (ngSubmit)="createFeedback()">
+
+        <h1 class="h1 mb-4">Feedback</h1>
+
+        <input type="text" formControlName="name" id="name" mdbInput class="form-control mb-4 form-control" placeholder="Name">
+
+        <input type="email" formControlName="email" id="email" mdbInput class="form-control mb-4 form-control" placeholder="E-mail">
+
+        <!-- <label>Subject</label> -->
+        <select formControlName="subject" class="browser-default custom-select mb-4 form-control" id="subject" (change)="onChangeSubject($event)" >
+            <option value="" disabled>Choose Subject</option>
+            <option value="Feedback on employee handling" selected>Feedback on employee handling</option>
+            <option value="Feedback on workload">Feedback on workload</option>
+            <option value="Feedback on company's culture">Feedback on company's culture</option>
+        </select>
+
+        <div class="form-group">
+            <textarea formControlName="review" class="form-control rounded-0 form-control" mdbInput id="review" cols="30" rows="3" placeholder="Your review"></textarea>
+        </div>
+        <div class="form-group" style="display:flex;">
+            <select formControlName="timelyResponse" class="browser-default custom-select mb-4 form-control" id="timelyResponse" (change)="onChangeResponse($event)">
+                <option value="" disabled>Timely Response</option>
+                <option value="Very Good" selected>Very Good</option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+            </select>
+            <select formControlName="overallSatisfaction" class="browser-default custom-select mb-4 form-control" id="overallSatisfaction" (change)="onChangeSatisfaction($event)" style="margin-left:10px;">
+                <option value="" disabled>Overall satisification</option>
+                <option value="Very Good" selected>Very Good</option>
+                <option value="Good">Good</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+            </select>
+        </div>
+        <!-- <mdb-checkbox [default]="true" class="mb-4">Send me a copy of this message</mdb-checkbox> -->
+
+        <button id="submit" mdbBtn color="info" class="z-depth-0 my-4 waves-effect" mdbWavesEffect type="submit" [disabled]="!feedbackForm.valid">Send</button>
+
+    </form>
+    
+</div>
+
+
+<!-- <form [formGroup]="feedbackForm" (ngSubmit)="createFeedback()">
+
+    <label for="name">Name: </label>
+    <input id="name" type="text" formControlName="name">
+  
+    <label for="email"> Email: </label>
+    <input id="email" type="text" formControlName="email">
+    <button type="submit" [disabled]="!feedbackForm.valid">Submit</button>
+</form> -->
+<!-- <input type="button" value="Create"  (click)="createFeedback()">  -->
